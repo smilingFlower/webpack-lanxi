@@ -1,0 +1,57 @@
+# 错误
+
+1. npm WARN webpack-demo@1.0.0 No repository field.
+
+   缺少repository字段，也就是说缺少项目的基本仓库字段。
+
+- 有仓库地址
+
+```js
+  //package.json
+  {
+    ...
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/yourname/repositoryname.git"
+    }
+    ...
+  }
+
+```
+
+- 没有仓库地址
+
+```js
+  //package.json
+  {
+    ...
+    //把项目声明为私有，这样npm就不会再提示配置repository
+    "private": true,
+    ...
+  }
+
+```
+
+2. npm WARN optional Skipping failed optional dependency /chokidar/fsevents:
+   npm WARN notsup Not compatible with your operating system or architecture: fsevents@1.1.1
+   
+   npm警告可选跳过失败的可选依赖项/ chokidar / fsevents:
+   不是一个错误，只是一个警告：它是一个可选的依赖关系
+
+  > 参考：
+    * https://stackoverflow.com/questions/33542712/npm-never-install-nested-optional-dependencies-for-npm-package  
+    * https://stackoverflow.com/questions/36725181/not-compatible-with-your-operating-system-or-architecture-fsevents1-0-11
+
+A依赖于程序包B，后者又依赖于程序包C. C然后有两个可选的本地依赖D和E.我知道我没有用于可选依赖项D和E，并且不想要有人安装我的包时尝试安装它们。
+
+解决方法：添加--no-optional（参数将阻止可选依赖关系的安装）
+
+```js
+  $ npm install --save-dev webpack
+  npm WARN optional Skipping failed optional dependency /chokidar/fsevents:
+  npm WARN notsup Not compatible with your operating system or architecture: fsevents@1.1.1
+```
+
+```js
+  npm install --no-optional --save-dev webpack
+```

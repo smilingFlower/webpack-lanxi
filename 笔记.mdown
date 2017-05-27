@@ -1,0 +1,8 @@
+```js
+    mkdir webpack-demo && cd webpack-demo  // 创建一个webpack-demo并进入
+    npm init -y  // npm init初始化一个新的项目，-y接受package.json文件的一堆默认值。 并创建一个package.json 文件。
+    npm install --save-dev webpack //安装开发依赖包webpack
+```
+```js
+    ./node_modules/.bin/webpack --help //显示有效cli命令的列表
+```

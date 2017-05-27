@@ -1,0 +1,6 @@
+#错误
+
+1. "private": true,  
+
+私人的，如果你设置"private": true在你的package.json中，那么npm将拒绝发布它。
+
